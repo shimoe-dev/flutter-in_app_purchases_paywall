@@ -20,17 +20,14 @@ class LegalRow extends StatelessWidget {
               onTap: () async {
                 final ChromeSafariBrowser browser = ChromeSafariBrowser();
                 await browser.open(
-                    url: Uri.parse(PaywallData.of(context).tosData!.url),
-                    options: ChromeSafariBrowserClassOptions(
-                        android: AndroidChromeCustomTabsOptions(),
-                        ios: IOSSafariOptions(barCollapsingEnabled: true)));
+                    url: WebUri(PaywallData.of(context).tosData!.url),
+                    options: ChromeSafariBrowserClassOptions(android: AndroidChromeCustomTabsOptions(), ios: IOSSafariOptions(barCollapsingEnabled: true)));
               },
               child: Text(
                 tosData.name,
                 style: TextStyle(
                     decoration: TextDecoration.underline,
-                    color: Theme.of(context).textTheme.labelLarge?.color ??
-                        Theme.of(context).primaryColor,
+                    color: Theme.of(context).textTheme.labelLarge?.color ?? Theme.of(context).primaryColor,
                     fontStyle: Theme.of(context).textTheme.bodySmall!.fontStyle),
               ),
             ),
@@ -42,17 +39,14 @@ class LegalRow extends StatelessWidget {
               onTap: () async {
                 final ChromeSafariBrowser browser = ChromeSafariBrowser();
                 await browser.open(
-                    url: Uri.parse(ppData.url),
-                    options: ChromeSafariBrowserClassOptions(
-                        android: AndroidChromeCustomTabsOptions(),
-                        ios: IOSSafariOptions(barCollapsingEnabled: true)));
+                    url: WebUri(ppData.url),
+                    options: ChromeSafariBrowserClassOptions(android: AndroidChromeCustomTabsOptions(), ios: IOSSafariOptions(barCollapsingEnabled: true)));
               },
               child: Text(
                 ppData.name,
                 style: TextStyle(
                     decoration: TextDecoration.underline,
-                    color: Theme.of(context).textTheme.labelLarge?.color ??
-                        Theme.of(context).primaryColor,
+                    color: Theme.of(context).textTheme.labelLarge?.color ?? Theme.of(context).primaryColor,
                     fontStyle: Theme.of(context).textTheme.bodySmall!.fontStyle),
               ),
             ),
